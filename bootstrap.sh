@@ -13,8 +13,19 @@ function main() {
 		&& { git clone https://github.com/zsh-users/antigen.git $HOME/.antigen;} \
 		|| ( mkdir "$HOME/.antigen" ; curl -#L https://github.com/zsh-users/antigen/tarball/develop | tar -xz --strip-components 1 -C $HOME/.antigen;)
 
-		echo "Done. $HOME/.antigen"
-		echo ""
+		echo "Done. $HOME/.antigen";
+		echo;
+	fi;
+
+	if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
+		echo "Clone: https://github.com/tmux-plugins/tpm > $HOME/.tmux/plugins/tpm";
+
+		command -v git > /dev/null \
+		&& { git clone https://github.com/tmux-plugins/tpm.git $HOME/.tmux/plugins/tpm;} \
+		|| ( mkdir "$HOME/.tmux/plugins/tpm" ; curl -#L https://github.com/tmux-plugins/tpm/tarball/master | tar -xz --strip-components 1 -C $HOME/.tmux/plugins/tpm;)
+
+		echo "Done. $HOME/.tmux/plugins/tpm";
+		echo;
 	fi;
 
 	echo "Enjoy this."
