@@ -55,6 +55,7 @@ function main() {
 		"$HOME/.dotfiles/config/gitconfig/gitconfig"
 		"$HOME/.environment/.pypirc"
 		"$HOME/.dotfiles/config/pip.conf"
+		"$HOME/.dotfiles/config/tmux.conf"
 		"$HOME/.dotfiles/config/cz-conventional/czrc"
 	)
 
@@ -63,6 +64,7 @@ function main() {
 		"$HOME/.gitconfig"
 		"$HOME/.pypirc"
 		"$HOME/.pip/pip.conf"
+		"$HOME/.tmux.conf"
 		"$HOME/.czrc"
 	)
 
