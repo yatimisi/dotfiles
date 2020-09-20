@@ -28,24 +28,51 @@ function main() {
 		echo;
 	fi;
 
-    # Make directory ----------------------------------------------------------------
-    for dir in ~/.{pip,environment}; do
-        [ ! -d "$dir" ] && mkdir "$dir" && echo "Done. $dir"
-    done
+	# Make directory ----------------------------------------------------------------
+	for dir in ~/.{pip,environment}; do
+		[ ! -d "$dir" ] && mkdir "$dir" && echo "Done. $dir"
+	done
 
-    # Made environment --------------------------------------------------------------
-    ENV_PATH="$HOME/.environment"
-    ENV=(
-        'config/gitconfig/gitconfig.user'
-        'config/pypirc'
-    )
+	# Made environment --------------------------------------------------------------
+	ENV_PATH="$HOME/.environment"
+	ENV=(
+		'config/gitconfig/gitconfig.user'
+		'config/pypirc'
+	)
 
-    for ((i=0; i < ${#ENV[@]}; i++))
-    do
-        if [ ! -f "$ENV_PATH/.$(basename "${ENV[$i]}")" ]; then
-            cp ${ENV[$i]} "$ENV_PATH/.$(basename "${ENV[$i]}")" && echo "Done. $ENV_PATH/.$(basename "${ENV[$i]}")"
-        fi
-    done
+	for ((i=0; i < ${#ENV[@]}; i++))
+	do
+		if [ ! -f "$ENV_PATH/.$(basename "${ENV[$i]}")" ]; then
+			cp ${ENV[$i]} "$ENV_PATH/.$(basename "${ENV[$i]}")" && echo "Done. $ENV_PATH/.$(basename "${ENV[$i]}")"
+		fi
+	done
+
+	# Link config -------------------------------------------------------------------
+	[ ! -d "$HOME/.dotfiles" ] && ln -si "$(dirname "${BASH_SOURCE}")" $HOME/.dotfiles && echo "Done. $HOME/.dotfiles"
+
+	FORM_LINK=(
+		"$HOME/.dotfiles/zsh/zshrc.zsh"
+	)
+
+	TO_LINK=(
+		"$HOME/.zshrc"
+	)
+
+	for ((i=0; i < ${#FORM_LINK[@]}; i++))
+	do
+		if [ "$1" == "--force" -o "$1" == "-f" ]; then
+			[ ! -f ${TO_LINK[$i]} ] && ln -sh ${FORM_LINK[$i]} ${TO_LINK[$i]} && echo "Done. ${TO_LINK[$i]}"
+		else
+			ln -si ${FORM_LINK[$i]} ${TO_LINK[$i]} && echo "Done. ${TO_LINK[$i]}"
+		fi;
+	done
+
+	if [ $(uname) != "Darwin" ]; then  # No conky for OSX
+		if [ -d "$HOME/.local/share/applications" ]; then  # No conky for no GUI
+			ln -s config/conkyrc/conkyrc $HOME/.conkyrc
+			ln -s config/conkyrc/conky.desktop $HOME/.local/share/applications
+		fi
+	fi
 
 	echo "Enjoy this."
 }
