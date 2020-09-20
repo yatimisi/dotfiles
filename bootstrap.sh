@@ -28,6 +28,25 @@ function main() {
 		echo;
 	fi;
 
+    # Make directory ----------------------------------------------------------------
+    for dir in ~/.{pip,environment}; do
+        [ ! -d "$dir" ] && mkdir "$dir" && echo "Done. $dir"
+    done
+
+    # Made environment --------------------------------------------------------------
+    ENV_PATH="$HOME/.environment"
+    ENV=(
+        'config/gitconfig/gitconfig.user'
+        'config/pypirc'
+    )
+
+    for ((i=0; i < ${#ENV[@]}; i++))
+    do
+        if [ ! -f "$ENV_PATH/.$(basename "${ENV[$i]}")" ]; then
+            cp ${ENV[$i]} "$ENV_PATH/.$(basename "${ENV[$i]}")" && echo "Done. $ENV_PATH/.$(basename "${ENV[$i]}")"
+        fi
+    done
+
 	echo "Enjoy this."
 }
 
