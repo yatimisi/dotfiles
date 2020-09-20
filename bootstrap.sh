@@ -52,10 +52,18 @@ function main() {
 
 	FORM_LINK=(
 		"$HOME/.dotfiles/zsh/zshrc.zsh"
+		"$HOME/.dotfiles/config/gitconfig/gitconfig"
+		"$HOME/.environment/.pypirc"
+		"$HOME/.dotfiles/config/pip.conf"
+		"$HOME/.dotfiles/config/cz-conventional/czrc"
 	)
 
 	TO_LINK=(
 		"$HOME/.zshrc"
+		"$HOME/.gitconfig"
+		"$HOME/.pypirc"
+		"$HOME/.pip/pip.conf"
+		"$HOME/.czrc"
 	)
 
 	for ((i=0; i < ${#FORM_LINK[@]}; i++))
