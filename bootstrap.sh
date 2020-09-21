@@ -88,6 +88,32 @@ function main() {
 		fi
 	fi
 
+	# Output Tips -------------------------------------------------------------------
+	OPTIONS_INSTALL=(
+		"nvm"
+		"node"
+		"npm"
+		"npx"
+		"pyenv"
+		"python"
+		"pip"
+		"pipenv"
+	)
+
+	echo "-------------------------------------------------------------------";
+	echo "Done.";
+	echo ;
+	echo "Please modify '.environment/' in your home dir.";
+	echo "And you can install:";
+
+	for ((i=0; i < ${#OPTIONS_INSTALL[@]}; i++))
+	do
+		echo "\t${OPTIONS_INSTALL[$i]}\c";
+		if [ $((($i + 1) % 4)) == 0 ]; then
+			echo ;
+		fi;
+	done
+
 	echo "Enjoy this."
 }
 
