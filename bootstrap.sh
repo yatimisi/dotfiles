@@ -75,9 +75,9 @@ function main() {
 	for ((i=0; i < ${#FORM_LINK[@]}; i++))
 	do
 		if [ "$1" == "--force" -o "$1" == "-f" ]; then
-			[ ! -f ${TO_LINK[$i]} ] && ln -sh ${FORM_LINK[$i]} ${TO_LINK[$i]} && echo "Done. ${TO_LINK[$i]}"
+			[ ! -f ${TO_LINK[$i]} ] && [ ! -d ${TO_LINK[$i]} ] && ln -sh ${FORM_LINK[$i]} ${TO_LINK[$i]} && echo "Done. ${TO_LINK[$i]}"
 		else
-			ln -si ${FORM_LINK[$i]} ${TO_LINK[$i]} && echo "Done. ${TO_LINK[$i]}"
+			ln -sih ${FORM_LINK[$i]} ${TO_LINK[$i]} && echo "Done. ${TO_LINK[$i]}"
 		fi;
 	done
 
