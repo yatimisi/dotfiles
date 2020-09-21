@@ -33,3 +33,14 @@ unset zsh
 
 
 for f in $HOME/.dotfiles/zsh/environmentals/*.zsh; do source $f; done
+
+load_node() {
+  source "$HOME/.dotfiles/zsh/environmentals/lazyload/node.zsh"
+}
+
+load_python() {
+  source "$HOME/.dotfiles/zsh/environmentals/lazyload/python.zsh"
+}
+
+lazyload nvm node npm npx git-cz ng -- 'load_node'
+lazyload pyenv python pip pipenv ipython bpython -- 'load_python'
