@@ -1,0 +1,44 @@
+Usage: git <command>
+
+Short Key:
+    gl ='git l'              gp ='git push'           gca='git commit -a'
+    gb ='git branch'        gpl ='git pull'           gm='git commit -m'
+    gc ='git checkout'                                gsm='git commit -S -m'
+    gd ='git diff'           ga ='git add'            gmi='git commit -m "feat: Initial commit"'
+    gs ='git status'        gaa ='git add --all'      gz ='git-cz'
+    gcl='git clone'
+    gbl='git blame'         gbll='git blame -L'
+    gsh='git stash'
+
+    gn='cp $HOME/.dotfiles/newFile/transform-git-commit.py ./'
+    gac    gasc    gf
+
+
+commitMesage:
+    feat:     一個新功能
+    fix:      一個bug修復
+    docs:     只更動文檔
+    style:    不影響程式碼含義的更改（空格、格式、缺少分號、CSS等）
+    refactor: 程式碼更改既不修復錯誤也不添加功能
+    perf:     提高性能的程式碼更改
+    test:     添加缺失測試或更正現有測試
+    build:    影響構建系統或外部依賴項的更改（示例範圍：gulp，broccoli，npm）
+    ci:       CI配置文件和腳本的更改（示例範圍：Travis，Circle，BrowserStack，SauceLabs）
+    chore:    其他不修改src或測試文件的更改
+    revert:   恢復先前的快照
+
+Important:
+    init                                初始化
+    status                              狀態
+    add <filename>                      加入
+    commit -m "<commit mesage>"         快照
+    log                                 歷史紀錄
+
+Squash:
+    git checkout develop
+    git merge --squash test2
+    git add .
+    git commit -m "merge test2"
+    git push -u origin develop
+    git branch -d test2
+    git remote update -p

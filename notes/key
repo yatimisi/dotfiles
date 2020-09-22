@@ -1,0 +1,20 @@
+ctrl <key>:
+    P    上            h    Backspace      	  O    向上新增一行
+    N    下            D    Delete         	  G    取消
+    B    左            K    Delete Line    	  [    上一編輯
+    F    右            J    Delete 換行    	  ]    下一編輯
+    A    最左
+    E    最右
+
+alt <key>:
+    F    單字右         Bk   Backspace word
+    B    單字左         D    Delete word
+    [    上一個tab      G    取消
+    ]    下一個tab
+
+command <key>:
+    Shift \    跳轉到匹配的括號         command    選取模式
+    Enter      向下新增一行             L          選取整行
+    [          上一分頁                 Shift L    選中所有與當前選中內容相同部分
+    ]          下一分頁                 D          選取一段字詞
+    G    取消
