@@ -36,3 +36,9 @@ sh bootstrap.sh -f
 
 ## Feedback
 Suggestions/improvements [welcome](https://github.com/yatimisi/dotfiles/issues)!
+
+## Reference and Thanks to:
+* https://github.com/arthurc0102/dotfiles
+* https://github.com/mathiasbynens/dotfiles
+* https://github.com/nanotech/jellybeans.vim
+* https://github.com/altercation/vim-colors-solarized
