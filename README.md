@@ -2,6 +2,8 @@
 
 > My config files
 
+![](./assets/images/example.png)
+
 ## Install
 
 **Warning:** If you want to give these dotfiles a try, you should first fork this repository, review the code, and remove things you don't want or need. Don't blindly use my settings unless you know what that entails. Use at your own risk!
@@ -36,3 +38,9 @@ sh bootstrap.sh -f
 
 ## Feedback
 Suggestions/improvements [welcome](https://github.com/yatimisi/dotfiles/issues)!
+
+## Reference and Thanks to:
+* https://github.com/arthurc0102/dotfiles
+* https://github.com/mathiasbynens/dotfiles
+* https://github.com/nanotech/jellybeans.vim
+* https://github.com/altercation/vim-colors-solarized
